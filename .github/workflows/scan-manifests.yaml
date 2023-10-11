@@ -16,5 +16,6 @@ jobs:
           unzip *.zip
       - name: Check nctl version
         run: ./nctl version
-      
+      - name: Run NCTL Scan
+        run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources
       - run: echo "🍏 This job's status is ${{ job.status }}."
