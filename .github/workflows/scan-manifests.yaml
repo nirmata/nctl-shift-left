@@ -20,7 +20,16 @@ jobs:
       - name: Check nctl version
         run: ./nctl version
 
-      - name: Run NCTL Scan
+      - name: NCTL Scan - Concise Report
         run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources
+
+      - name: NCTL Scan - Detailed Report
+        run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --expand
+
+      - name: NCTL Scan - JSON output
+        run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --format json
+
+      - name: NCTL Scan - YAML output
+        run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --format yaml
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
