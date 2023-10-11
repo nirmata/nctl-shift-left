@@ -27,9 +27,9 @@ jobs:
         run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --expand
 
       - name: NCTL Scan - JSON output
-        run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --format json
+        run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --format json --output report.json
 
       - name: NCTL Scan - YAML output
-        run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --format yaml
+        run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --format yaml --output report.yaml
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
