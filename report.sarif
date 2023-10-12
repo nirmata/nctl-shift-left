@@ -38,9 +38,11 @@
                     "category": "Pod Security Standards (Baseline)",
                     "comment": "remediation help",
                     "tags": [
-                        "k8s-manifests-scan"
+                        "pss-baseline"
                     ],
-                    "help": "remediation text"
+                    "help": {
+                        "text": "To remediate this issue, refer to the Nirmata documentation [here](https://docs.nirmata.io/policysets/podsecurity/baseline/disallow-host-namespaces/)"
+                    }
                 }
             }
             ]
