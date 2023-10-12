@@ -33,6 +33,25 @@ jobs:
         run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --format yaml
 
       - name: NCTL Scan - SARIF output
-        run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --format sarif
+        run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --format sarif --output result.sarif
+        with:
+          name: sarif-output
+          path: result.sarif
+
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+
+  Upload-SARIF-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download SARIF result from previous scan job
+        uses: actions/download-artifact@v3
+        with:
+          name: sarif-output
+
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: results.sarif
+          category: NCTL Scan
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
