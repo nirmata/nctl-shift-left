@@ -18,7 +18,7 @@
             }
           ],
           "message": {
-            "markdown": "rule `autogen-host-namespaces` failed at path `/spec/template/spec/hostIPC/`"
+            "text": "rule autogen-host-namespaces failed at path /spec/template/spec/hostIPC/"
           },
           "ruleId": "autogen-host-namespaces"
         }
