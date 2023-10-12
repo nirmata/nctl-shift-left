@@ -26,7 +26,7 @@
       "tool": {
         "driver": {
           "informationUri": "https://docs.nirmata.io/nctl/",
-          "name": "Nirmata",
+          "name": "NCTL (Nirmata)",
           "version": "3.3.8",
           "rules": [
             {
@@ -36,7 +36,11 @@
                 },
                 "properties": {
                     "category": "Pod Security Standards (Baseline)",
-                    "comment": "remediation help"
+                    "comment": "remediation help",
+                    "tags": [
+                        "k8s-manifests-scan"
+                    ],
+                    "help": "remediation text"
                 }
             }
             ]
