@@ -2,7 +2,6 @@
   "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
   "runs": [
     {
-        
       "results": [
         {
           "level": "warning",
@@ -19,7 +18,7 @@
             }
           ],
           "message": {
-            "text": "validation error: Sharing the host namespaces is disallowed. rule autogen-host-namespaces failed at path /spec/template/spec/hostIPC/"
+            "text": "rule autogen-host-namespaces failed at path /spec/template/spec/hostIPC/"
           },
           "ruleId": "autogen-host-namespaces"
         }
@@ -28,7 +27,18 @@
         "driver": {
           "informationUri": "https://docs.nirmata.io/nctl/",
           "name": "Nirmata",
-          "version": "3.3.8"
+          "version": "3.3.8",
+          "rules": [
+            {
+                "id": "autogen-host-namespaces",
+                "shortDescription": {
+                    "text": "validation error: Sharing the host namespaces is disallowed."
+                },
+                "properties": {
+                    "category": "Pod Security Standards (Baseline)"
+                }
+            }
+            ]
         }
       }
     }
