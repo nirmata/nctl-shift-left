@@ -26,23 +26,24 @@
       "tool": {
         "driver": {
           "informationUri": "https://docs.nirmata.io/nctl/",
-          "name": "NCTL (Nirmata)",
+          "name": "nctl",
           "version": "3.3.8",
           "rules": [
             {
                 "id": "autogen-host-namespaces",
+                "helpUri": "https://github.com/check-spelling/check-spelling/wiki/Event-descriptions#candidate-pattern",
                 "shortDescription": {
                     "text": "validation error: Sharing the host namespaces is disallowed."
+                },
+                "help": {
+                    "text": "?",
+                    "markdown": "To remediate this issue, refer to the Nirmata documentation [here](https://docs.nirmata.io/policysets/podsecurity/baseline/disallow-host-namespaces/)"
                 },
                 "properties": {
                     "category": "Pod Security Standards (Baseline)",
                     "tags": [
                         "pss-baseline"
-                    ],
-                    "help": {
-                        "text": "?",
-                        "markdown": "To remediate this issue, refer to the Nirmata documentation [here](https://docs.nirmata.io/policysets/podsecurity/baseline/disallow-host-namespaces/)"
-                    }
+                    ]
                 }
             }
             ]
