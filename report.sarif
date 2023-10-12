@@ -1,0 +1,37 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+        
+      "results": [
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "scan-manifests/resources/bad-deployment.yaml"
+                },
+                "region": {
+                    "startLine": 17
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "validation error: Sharing the host namespaces is disallowed. rule autogen-host-namespaces failed at path /spec/template/spec/hostIPC/"
+          },
+          "ruleId": "autogen-host-namespaces"
+        }
+      ],
+      "tool": {
+        "driver": {
+          "informationUri": "https://docs.nirmata.io/nctl/",
+          "name": "Nirmata",
+          "version": "3.3.8"
+        }
+      }
+    }
+  ],
+  "version": "2.1.0"
+}
