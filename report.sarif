@@ -18,7 +18,7 @@
             }
           ],
           "message": {
-            "text": "rule autogen-host-namespaces failed at path /spec/template/spec/hostIPC/"
+            "markdown": "rule `autogen-host-namespaces` failed at path `/spec/template/spec/hostIPC/`"
           },
           "ruleId": "autogen-host-namespaces"
         }
@@ -35,7 +35,8 @@
                     "text": "validation error: Sharing the host namespaces is disallowed."
                 },
                 "properties": {
-                    "category": "Pod Security Standards (Baseline)"
+                    "category": "Pod Security Standards (Baseline)",
+                    "comment": "remediation help"
                 }
             }
             ]
