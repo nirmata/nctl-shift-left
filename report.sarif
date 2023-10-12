@@ -36,12 +36,12 @@
                 },
                 "properties": {
                     "category": "Pod Security Standards (Baseline)",
-                    "comment": "remediation help",
                     "tags": [
                         "pss-baseline"
                     ],
                     "help": {
-                        "text": "To remediate this issue, refer to the Nirmata documentation [here](https://docs.nirmata.io/policysets/podsecurity/baseline/disallow-host-namespaces/)"
+                        "text": "?",
+                        "markdown": "To remediate this issue, refer to the Nirmata documentation [here](https://docs.nirmata.io/policysets/podsecurity/baseline/disallow-host-namespaces/)"
                     }
                 }
             }
