@@ -14,7 +14,7 @@ jobs:
 
       - name: Install nctl
         run: |
-          curl -O -L -s https://nirmata-downloads.s3.us-east-2.amazonaws.com/nctl/nctl_3.3.7/nctl_3.3.7_linux_64-bit.zip
+          curl -O -L -s https://nirmata-downloads.s3.us-east-2.amazonaws.com/nctl/nctl_3.3.8-rc1/nctl_3.3.8-rc1_linux_64-bit.zip
           unzip *.zip
 
       - name: Check nctl version
@@ -27,9 +27,12 @@ jobs:
         run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --expand
 
       - name: NCTL Scan - JSON output
-        run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --format json --output report.json
+        run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --format json
 
       - name: NCTL Scan - YAML output
-        run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --format yaml --output report.yaml
+        run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --format yaml
+
+      - name: NCTL Scan - SARIF output
+        run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --format sarif
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
