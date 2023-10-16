@@ -9,7 +9,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "default/badpod01(Pod)"
+                  "uri": "scan-manifests/resources/bad-deployment.yaml"
                 }
               }
             }
@@ -38,7 +38,7 @@
                 ]
               },
               "shortDescription": {
-                "text": "validation error: Using 'default' namespace is not allowed. rule validate-namespace failed at path /metadata/namespace/"
+                "text": "validation error: Using 'default' namespace is not allowed."
               }
             }
           ],
