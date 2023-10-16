@@ -9,44 +9,40 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "scan-manifests/resources/bad-deployment.yaml"
-                },
-                "region": {
-                    "startLine": 17
+                  "uri": "default/badpod01(Pod)"
                 }
               }
             }
           ],
           "message": {
-            "text": "rule autogen-host-namespaces failed at path /spec/template/spec/hostIPC/"
+            "text": "validation error: Using 'default' namespace is not allowed. rule validate-namespace failed at path /metadata/namespace/"
           },
-          "ruleId": "autogen-host-namespaces"
+          "ruleId": "validate-namespace"
         }
       ],
       "tool": {
         "driver": {
           "informationUri": "https://docs.nirmata.io/nctl/",
           "name": "nctl",
-          "version": "3.3.8",
           "rules": [
             {
-                "id": "autogen-host-namespaces",
-                "helpUri": "https://github.com/check-spelling/check-spelling/wiki/Event-descriptions#candidate-pattern",
-                "shortDescription": {
-                    "text": "validation error: Sharing the host namespaces is disallowed."
-                },
-                "help": {
-                    "text": "?",
-                    "markdown": "To remediate this issue, refer to the Nirmata documentation [here](https://docs.nirmata.io/policysets/podsecurity/baseline/disallow-host-namespaces/)"
-                },
-                "properties": {
-                    "category": "Pod Security Standards (Baseline)",
-                    "tags": [
-                        "pss-baseline"
-                    ]
-                }
+              "help": {
+                "markdown": "https://docs.nirmata.io/policysets/podsecurity/baseline/disallow-capabilities/",
+                "text": "?"
+              },
+              "id": "validate-namespace",
+              "properties": {
+                "category": "Multi-Tenancy",
+                "tags": [
+                  ""
+                ]
+              },
+              "shortDescription": {
+                "text": "validation error: Using 'default' namespace is not allowed. rule validate-namespace failed at path /metadata/namespace/"
+              }
             }
-            ]
+          ],
+          "version": "3.3.8"
         }
       }
     }
