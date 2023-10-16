@@ -7,6 +7,11 @@
           "level": "warning",
           "locations": [
             {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "scan-manifests/resources/bad-deployment.yaml"
+                }
+              },
               "logicalLocations": [
                 {
                   "name": "nginx-deploy",
