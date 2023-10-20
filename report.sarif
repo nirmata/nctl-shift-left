@@ -5,23 +5,7 @@
       "results": [
         {
           "level": "warning",
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "scan-manifests/resources/bad-deployment.yaml"
-                }
-              },
-              "logicalLocations": [
-                {
-                  "name": "nginx-deploy",
-                  "fullyQualifiedName": "namespaceA/nginx-deploy",
-                  "kind": "Deployment"
-                }
-              ]
-            }
-            
-          ],
+          
           
           "message": {
             "text": "validation error: Using 'default' namespace is not allowed. rule validate-namespace failed at path /metadata/namespace/"
