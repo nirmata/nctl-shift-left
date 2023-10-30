@@ -5,10 +5,19 @@
       "results": [
         {
           "level": "warning",
-          "locations":[{"physicalLocation":{"artifactLocation":{"uri":"kube-system/kube-apiserver-nctl-demo-control-plane(Pod)"}}}],
+          "locations":[
+          "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "scan-manifests/resources/bad-deployment.yaml",
+                },
+                "region": {
+                  "startLine": 17,
+                }
+              }
+          ],
           
           "message": {
-            "text": "validation error: Using 'default' namespace is not allowed. rule validate-namespace failed at path /metadata/namespace/"
+            "text": "validation error: Sharing the host namespaces is disallowed. rule validate-namespace failed at path /spec/template/spec/hostIPC"
           },
           "ruleId": "validate-namespace"
         }
@@ -20,18 +29,18 @@
           "rules": [
             {
               "help": {
-                "markdown": "https://docs.nirmata.io/policysets/podsecurity/baseline/disallow-capabilities/",
+                "markdown": "https://docs.nirmata.io/policysets/podsecurity/baseline/disallow-host-namespaces/",
                 "text": "?"
               },
               "id": "validate-namespace",
               "properties": {
-                "category": "Multi-Tenancy",
+                "category": "Pod Security Standards (Baseline)",
                 "tags": [
                   ""
                 ]
               },
               "shortDescription": {
-                "text": "validation error: Using 'default' namespace is not allowed."
+                "text": "validation error: Sharing the host namespaces is disallowed."
               }
             }
           ],
