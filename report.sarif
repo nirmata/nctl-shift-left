@@ -5,7 +5,7 @@
       "results": [
         {
           "level": "warning",
-          
+          "locations":[{"physicalLocation":{"artifactLocation":{"uri":"kube-system/kube-apiserver-nctl-demo-control-plane(Pod)"}}}],
           
           "message": {
             "text": "validation error: Using 'default' namespace is not allowed. rule validate-namespace failed at path /metadata/namespace/"
