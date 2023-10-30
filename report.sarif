@@ -5,17 +5,18 @@
       "results": [
         {
           "level": "warning",
-          "locations":[
-          "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "scan-manifests/resources/bad-deployment.yaml",
-                },
-                "region": {
-                  "startLine": 17,
-                }
+          "locations": [
+            {
+            "physicalLocation": {
+              "artifactLocation": {
+                "uri": "scan-manifests/resources/bad-deployment.yaml",
+              },
+              "region": {
+                "startLine": 17,
               }
+            }
+          }
           ],
-          
           "message": {
             "text": "validation error: Sharing the host namespaces is disallowed. rule validate-namespace failed at path /spec/template/spec/hostIPC"
           },
