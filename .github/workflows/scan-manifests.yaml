@@ -14,26 +14,26 @@ jobs:
 
       - name: Install nctl
         run: |
-          curl -O -L -s https://nirmata-downloads.s3.us-east-2.amazonaws.com/nctl/nctl_3.3.8-rc1/nctl_3.3.8-rc1_linux_64-bit.zip
+          curl -O -L -s https://nirmata-downloads.s3.us-east-2.amazonaws.com/nctl/nctl_3.3.8-rc2/nctl_3.3.8-rc2_linux_64-bit.zip
           unzip *.zip
 
       - name: Check nctl version
         run: ./nctl version
 
       - name: NCTL Scan - Concise Report
-        run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources
+        run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --resource-type kubernetes --details
 
       - name: NCTL Scan - Detailed Report
-        run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --expand
+        run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --details --resource-type kubernetes
 
       - name: NCTL Scan - JSON output
-        run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --format json
+        run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --format json --resource-type kubernetes
 
       - name: NCTL Scan - YAML output
-        run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --format yaml
+        run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --format yaml --resource-type kubernetes
 
       - name: NCTL Scan - SARIF output
-        run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --format sarif --output results.sarif
+        run: ./nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --format sarif --output results.sarif --resource-type kubernetes
 
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
