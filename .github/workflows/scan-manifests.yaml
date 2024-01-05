@@ -25,13 +25,13 @@ jobs:
         run: nctl scan --policies scan-manifests/policies --resources scan-manifests/resources --details --resource-type kubernetes --audit-as-warn
 
       - name: NCTL Scan - JSON output
-        run: nctl scan --policies scan-manifests/policies --resources scan-manifests/resources --format json --resource-type kubernetes --audit-as-warn
+        run: nctl scan --policies scan-manifests/policies --resources scan-manifests/resources --output json --resource-type kubernetes --audit-as-warn
 
       - name: NCTL Scan - YAML output
-        run: nctl scan --policies scan-manifests/policies --resources scan-manifests/resources --format yaml --resource-type kubernetes --audit-as-warn
+        run: nctl scan --policies scan-manifests/policies --resources scan-manifests/resources --output yaml --resource-type kubernetes --audit-as-warn
 
       - name: NCTL Scan - SARIF output
-        run: nctl scan --policies scan-manifests/policies --resources scan-manifests/resources --format sarif --output results.sarif --resource-type kubernetes --audit-as-warn
+        run: nctl scan --policies scan-manifests/policies --resources scan-manifests/resources --output sarif --output results.sarif --resource-type kubernetes --audit-as-warn
 
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
