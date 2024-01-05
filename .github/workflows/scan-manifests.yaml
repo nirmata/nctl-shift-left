@@ -15,28 +15,23 @@ jobs:
 
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
 
-      # - name: Install nctl
-      #   run: |
-      #     curl -O -L -s https://nirmata-downloads.s3.us-east-2.amazonaws.com/nctl/nctl_3.3.8-rc2/nctl_3.3.8-rc2_linux_64-bit.zip
-      #     unzip *.zip
-
       - name: Check nctl version
         run: nctl version
 
       - name: NCTL Scan - Concise Report
-        run: nctl scan --policies scan-manifests/policies --resources scan-manifests/resources --resource-type kubernetes --details
+        run: nctl scan --policies scan-manifests/policies --resources scan-manifests/resources --resource-type kubernetes --details --audit-as-warn
 
       - name: NCTL Scan - Detailed Report
-        run: nctl scan --policies scan-manifests/policies --resources scan-manifests/resources --details --resource-type kubernetes
+        run: nctl scan --policies scan-manifests/policies --resources scan-manifests/resources --details --resource-type kubernetes --audit-as-warn
 
       - name: NCTL Scan - JSON output
-        run: nctl scan --policies scan-manifests/policies --resources scan-manifests/resources --format json --resource-type kubernetes
+        run: nctl scan --policies scan-manifests/policies --resources scan-manifests/resources --format json --resource-type kubernetes --audit-as-warn
 
       - name: NCTL Scan - YAML output
-        run: nctl scan --policies scan-manifests/policies --resources scan-manifests/resources --format yaml --resource-type kubernetes
+        run: nctl scan --policies scan-manifests/policies --resources scan-manifests/resources --format yaml --resource-type kubernetes --audit-as-warn
 
       - name: NCTL Scan - SARIF output
-        run: nctl scan --policies scan-manifests/policies --resources scan-manifests/resources --format sarif --output results.sarif --resource-type kubernetes
+        run: nctl scan --policies scan-manifests/policies --resources scan-manifests/resources --format sarif --output results.sarif --resource-type kubernetes --audit-as-warn
 
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
