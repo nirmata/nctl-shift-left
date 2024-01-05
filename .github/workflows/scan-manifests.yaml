@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: nctl-scan-installer
-        uses: nirmata/action-install-nctl-scan@v0.0.1
+        uses: nirmata/action-install-nctl-scan@v0.0.2
 
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
 
@@ -24,19 +24,19 @@ jobs:
         run: nctl version
 
       - name: NCTL Scan - Concise Report
-        run: nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --resource-type kubernetes --details
+        run: nctl scan --policies scan-manifests/policies --resources scan-manifests/resources --resource-type kubernetes --details
 
       - name: NCTL Scan - Detailed Report
-        run: nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --details --resource-type kubernetes
+        run: nctl scan --policies scan-manifests/policies --resources scan-manifests/resources --details --resource-type kubernetes
 
       - name: NCTL Scan - JSON output
-        run: nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --format json --resource-type kubernetes
+        run: nctl scan --policies scan-manifests/policies --resources scan-manifests/resources --format json --resource-type kubernetes
 
       - name: NCTL Scan - YAML output
-        run: nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --format yaml --resource-type kubernetes
+        run: nctl scan --policies scan-manifests/policies --resources scan-manifests/resources --format yaml --resource-type kubernetes
 
       - name: NCTL Scan - SARIF output
-        run: nctl scan --policies scan-manifests/policies --resource scan-manifests/resources --format sarif --output results.sarif --resource-type kubernetes
+        run: nctl scan --policies scan-manifests/policies --resources scan-manifests/resources --format sarif --output results.sarif --resource-type kubernetes
 
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
