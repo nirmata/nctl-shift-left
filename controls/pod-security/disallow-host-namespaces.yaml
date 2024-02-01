@@ -9,7 +9,6 @@ metadata:
     kyverno.io/kyverno-version: 1.6.0
     kyverno.io/kubernetes-version: "1.22-1.23"
     policies.kyverno.io/subject: Pod
-    policies.nirmata.io/remediation: "https://docs.nirmata.io/policysets/podsecurity/baseline/disallow-host-namespaces/"
     policies.kyverno.io/description: >-
       Host namespaces (Process ID namespace, Inter-Process Communication namespace, and
       network namespace) allow access to shared information and can be used to elevate
@@ -22,12 +21,13 @@ spec:
     - name: host-namespaces
       match:
         any:
-          - resources:
-              kinds:
-                - Pod
+        - resources:
+            kinds:
+              - Pod
       validate:
         message: >-
-          Sharing the host namespaces is disallowed.
+          Sharing the host namespaces is disallowed. The fields spec.hostNetwork,
+          spec.hostIPC, and spec.hostPID must be unset or set to `false`. (CCI-001090)
         pattern:
           spec:
             =(hostPID): "false"

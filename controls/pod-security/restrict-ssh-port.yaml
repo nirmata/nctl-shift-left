@@ -1,0 +1,31 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: restric-ssh-port
+  annotations:
+    policies.kyverno.io/title: Restrict SSH Port
+    policies.kyverno.io/category: Security
+    policies.kyverno.io/severity: medium
+    kyverno.io/kyverno-version: 1.7.2
+    kyverno.io/kubernetes-version: "1.23"
+    policies.kyverno.io/subject: Pod
+    policies.kyverno.io/description: >-
+      SSH port should not be allowed for the container  
+spec:
+  validationFailureAction: audit
+  background: true
+  rules:
+    - name: check-ssh-port
+      match:
+        any:
+        - resources:
+            kinds:
+              - Pod
+      validate:
+        message: "SSH port is not allowed. (CCI-000381)"
+        pattern:
+          spec:
+            containers:
+            - name: "*"
+              =(ports):
+              - containerPort: "!22"

@@ -1,0 +1,49 @@
+stages:
+  - install
+  - scan-k8s
+  - publish
+
+install-nctl:       # This job installs nctl.
+  stage: install
+  script:
+    - echo "Downloading and Installing NCTL 3.3.9"
+    - curl -O -L -s https://nirmata-downloads.s3.us-east-2.amazonaws.com/nctl/nctl_3.3.9/nctl_3.3.9_linux_64-bit.zip
+    - unzip *.zip
+    - echo "Verify Installation"
+    - chmod 755 ./nctl
+    - ./nctl version
+  artifacts:
+    paths:
+    - ./nctl
+
+
+nctl-scan-k8s-concise-output:   # This job scans k8s files for misconfigurations.
+  stage: scan-k8s    # It only starts when the job in the install stage completes successfully.
+  dependencies:
+    - install-nctl
+  script:
+    - echo "Running nctl scan"
+    - ./nctl scan --policies controls/pod-security --resources config-files/k8s --resource-type kubernetes --audit-as-warn
+
+nctl-scan-k8s-detailed-output:   # This job scans k8s files for misconfigurations.
+  stage: scan-k8s    # It only starts when the job in the install stage completes successfully.
+  dependencies:
+    - install-nctl
+  script:
+    - echo "Running nctl scan"
+    - ./nctl scan --policies controls/pod-security --resources config-files/k8s --resource-type kubernetes --details --audit-as-warn
+
+nctl-scan-k8s-json-output:   # This job scans k8s files for misconfigurations.
+  stage: scan-k8s    # It only starts when the job in the install stage completes successfully.
+  dependencies:
+    - install-nctl
+  script:
+    - echo "Running nctl scan"
+    - ./nctl scan --policies controls/pod-security --resources config-files/k8s --resource-type kubernetes --audit-as-warn --output json
+
+publish-results-npm:
+  stage: publish
+  script:
+    - echo "Placeholder to publish results to NPM"s
+
+
