@@ -1,4 +1,4 @@
-name: NCTL Scan Demo
+name: NCTL Scan Supported Output Formats
 run-name: ${{ github.actor }} has triggered Scan Action 🚀
 on:
   pull_request:
@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: nctl-scan-installer
-        uses: nirmata/action-install-nctl-scan@v0.0.2
+        uses: nirmata/action-install-nctl-scan@v0.0.3
 
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
 
@@ -25,19 +25,19 @@ jobs:
         run: nctl version
 
       - name: NCTL Scan - Concise Report
-        run: nctl scan --policies controls/pod-security --resources config-files/k8s --resource-type kubernetes --details --audit-as-warn
+        run: nctl scan kubernetes --policies controls/pod-security --resources config-files/k8s --details --audit-as-warn
 
       - name: NCTL Scan - Detailed Report
-        run: nctl scan --policies controls/pod-security --resources config-files/k8s --details --resource-type kubernetes --audit-as-warn
+        run: nctl scan kubernetes --policies controls/pod-security --resources config-files/k8s --details --audit-as-warn
 
       - name: NCTL Scan - JSON output
-        run: nctl scan --policies controls/pod-security --resources config-files/k8s --output json --resource-type kubernetes --audit-as-warn
+        run: nctl scan kubernetes --policies controls/pod-security --resources config-files/k8s --output json --audit-as-warn
 
       - name: NCTL Scan - YAML output
-        run: nctl scan --policies controls/pod-security --resources config-files/k8s --output yaml --resource-type kubernetes
+        run: nctl scan kubernetes --policies controls/pod-security --resources config-files/k8s --output yaml
 
       - name: NCTL Scan - SARIF output
-        run: nctl scan --policies controls/pod-security --resources config-files/k8s --output sarif --output results.sarif --resource-type kubernetes --audit-as-warn
+        run: nctl scan kubernetes --policies controls/pod-security --resources config-files/k8s --output sarif --output results.sarif --audit-as-warn
 
       # - name: Upload SARIF file
       #   uses: github/codeql-action/upload-sarif@v2
