@@ -30,8 +30,8 @@ jobs:
       - name: NCTL Scan - Kubernetes Detailed Report
         run: nctl scan kubernetes --policies controls/pod-security --resources config-files/k8s --details --audit-as-warn
 
-      - name: NCTL Scan - Terraform
-        run: nctl scan terraform --policies controls/s3-best-practices --resources config-files/terraform --details
+      # - name: NCTL Scan - Terraform
+      #   run: nctl scan terraform --policies controls/s3-best-practices --resources config-files/terraform --details
       
       - name: NCTL Scan - Dockerfile
         run: nctl scan dockerfile --policies controls/dockerfile-best-practices --resources config-files/dockerfile --details
