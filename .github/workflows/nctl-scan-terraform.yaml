@@ -1,14 +1,15 @@
-name: NCTL Scan Demo
+name: NCTL Scan Terraform Demo
 run-name: ${{ github.actor }} has triggered Scan Action 🚀
 on:
   pull_request:
-    types: [opened, reopened]
+    branches:
+      - "main"
   push:
     branches:
       - "main"
 
 jobs:
-  NCTL-Scan-Manifests:
+  NCTL-Scan-Terraform:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -24,20 +25,11 @@ jobs:
       - name: Check nctl version
         run: nctl version
 
-      - name: NCTL Scan - Kubernetes
-        run: nctl scan kubernetes --policies controls/pod-security --resources config-files/k8s --audit-as-warn
-
-      - name: NCTL Scan - Kubernetes Detailed Report
-        run: nctl scan kubernetes --policies controls/pod-security --resources config-files/k8s --details --audit-as-warn
-
       - name: NCTL Scan - Terraform
         # cd config-files/terraform
         # terraform init
         # terraform plan -out tfplan.binary
         # terraform show -json tfplan.binary | jq > payload.json
         run: nctl scan terraform --policies controls/s3-best-practices --resources config-files/terraform/payload.json
-      
-      - name: NCTL Scan - Dockerfile
-        run: nctl scan dockerfile --policies controls/dockerfile-best-practices --resources config-files/dockerfile
 
       - run: echo "🍏 This job's status is ${{ job.status }}."

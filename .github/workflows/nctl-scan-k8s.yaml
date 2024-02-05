@@ -1,0 +1,34 @@
+name: NCTL Scan K8s Demo
+run-name: ${{ github.actor }} has triggered Scan Action 🚀
+on:
+  pull_request:
+    branches:
+      - "main"
+  push:
+    branches:
+      - "main"
+
+jobs:
+  NCTL-Scan-K8s:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: nctl-scan-installer
+        uses: nirmata/action-install-nctl-scan@v0.0.3
+
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+
+      - name: Check nctl version
+        run: nctl version
+
+      - name: NCTL Scan - Kubernetes
+        run: nctl scan kubernetes --policies controls/pod-security --resources config-files/k8s --audit-as-warn
+
+      - name: NCTL Scan - Kubernetes Detailed Report
+        run: nctl scan kubernetes --policies controls/pod-security --resources config-files/k8s --details --audit-as-warn
+
+      - run: echo "🍏 This job's status is ${{ job.status }}."
