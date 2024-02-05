@@ -8,7 +8,7 @@ on:
       - "main"
 
 jobs:
-  Scan-K8s-Manifests:
+  NCTL-Scan-Manifests:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -34,6 +34,6 @@ jobs:
       #   run: nctl scan terraform --policies controls/s3-best-practices --resources config-files/terraform --details
       
       - name: NCTL Scan - Dockerfile
-        run: nctl scan dockerfile --policies controls/dockerfile-best-practices --resources config-files/dockerfile --details
+        run: nctl scan dockerfile --policies controls/dockerfile-best-practices --resources config-files/dockerfile
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
