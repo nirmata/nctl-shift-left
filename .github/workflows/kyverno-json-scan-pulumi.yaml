@@ -1,0 +1,33 @@
+name: Kyverno JSON Scan Pulumi Demo
+run-name: ${{ github.actor }} has triggered Scan Action 🚀
+on:
+  pull_request:
+    branches:
+      - "main"
+  push:
+    branches:
+      - "main"
+
+jobs:
+  Kyverno-JSON-Scan-Pulumi:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Install kyverno-json
+        uses: kyverno/action-install-kyverno-json@main
+
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+
+      - name: Check install
+        run: kyverno-json version
+
+      - name: Kyverno JSON Scan - Pulumi
+        # cd config-files/pulumi/deployment
+        # pulumi preview -j > pulumi.json
+        run: kyverno-json scan --policy controls/pulumi-best-practices --payload config-files/pulumi/deployment/pulumi.json
+
+      - run: echo "🍏 This job's status is ${{ job.status }}."
