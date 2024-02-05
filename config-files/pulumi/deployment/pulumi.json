@@ -1,0 +1,75 @@
+{
+    "config": {
+        "pulumi:tags": "{\"pulumi:template\":\"kubernetes-python\"}"
+    },
+    "steps": [
+        {
+            "op": "create",
+            "urn": "urn:pulumi:test::quickstart::pulumi:pulumi:Stack::quickstart-test",
+            "newState": {
+                "urn": "urn:pulumi:test::quickstart::pulumi:pulumi:Stack::quickstart-test",
+                "custom": false,
+                "type": "pulumi:pulumi:Stack",
+                "sourcePosition": "project:///venv/lib/python3.11/site-packages/pulumi/runtime/stack.py#139"
+            },
+            "detailedDiff": null
+        },
+        {
+            "op": "create",
+            "urn": "urn:pulumi:test::quickstart::kubernetes:apps/v1:Deployment::nginx",
+            "provider": "urn:pulumi:test::quickstart::pulumi:providers:kubernetes::default_4_7_1::04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+            "newState": {
+                "urn": "urn:pulumi:test::quickstart::kubernetes:apps/v1:Deployment::nginx",
+                "custom": true,
+                "type": "kubernetes:apps/v1:Deployment",
+                "inputs": {
+                    "apiVersion": "apps/v1",
+                    "kind": "Deployment",
+                    "metadata": {
+                        "annotations": {
+                            "pulumi.com/autonamed": "true"
+                        },
+                        "name": "nginx-1026bcfa",
+                        "namespace": "default"
+                    },
+                    "spec": {
+                        "replicas": 1,
+                        "selector": {
+                            "matchLabels": {
+                                "app": "nginx"
+                            }
+                        },
+                        "template": {
+                            "metadata": {
+                                "labels": {
+                                    "app": "nginx"
+                                }
+                            },
+                            "spec": {
+                                "containers": [
+                                    {
+                                        "image": "nginx",
+                                        "name": "nginx"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "parent": "urn:pulumi:test::quickstart::pulumi:pulumi:Stack::quickstart-test",
+                "provider": "urn:pulumi:test::quickstart::pulumi:providers:kubernetes::default_4_7_1::04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "propertyDependencies": {
+                    "apiVersion": null,
+                    "kind": null,
+                    "spec": null
+                },
+                "sourcePosition": "project:///venv/lib/python3.11/site-packages/pulumi_kubernetes/apps/v1/Deployment.py#323"
+            },
+            "detailedDiff": null
+        }
+    ],
+    "duration": 673330292,
+    "changeSummary": {
+        "create": 2
+    }
+}
