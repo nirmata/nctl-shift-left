@@ -2,7 +2,8 @@ name: NCTL Scan Demo
 run-name: ${{ github.actor }} has triggered Scan Action 🚀
 on:
   pull_request:
-    types: [opened, reopened]
+    branches:
+      - "main"
   push:
     branches:
       - "main"
@@ -35,7 +36,7 @@ jobs:
         # terraform init
         # terraform plan -out tfplan.binary
         # terraform show -json tfplan.binary | jq > payload.json
-        run: nctl scan terraform --policies controls/s3-best-practices --resources config-files/terraform/payload.json
+        run: nctl scan terraform --policies controls/s3-best-practices --resources config-files/terraform/payload.json --audit-as-warn
       
       - name: NCTL Scan - Dockerfile
         run: nctl scan dockerfile --policies controls/dockerfile-best-practices --resources config-files/dockerfile

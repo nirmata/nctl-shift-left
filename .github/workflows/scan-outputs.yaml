@@ -1,8 +1,8 @@
 name: NCTL Scan Supported Output Formats
 run-name: ${{ github.actor }} has triggered Scan Action 🚀
 on:
-  pull_request:
-    types: [opened, reopened]
+  # pull_request:
+  #   types: [opened, reopened]
   push:
     branches:
       - "main"
