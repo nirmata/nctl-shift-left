@@ -42,7 +42,7 @@
             "mfa": null,
             "versioning_configuration": [
               {
-                "status": "Disabled"
+                "status": "Enabled"
               }
             ]
           },

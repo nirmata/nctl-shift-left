@@ -26,6 +26,6 @@ jobs:
         run: nctl version
 
       - name: NCTL Scan - Dockerfile
-        run: nctl scan dockerfile --policies controls/dockerfile-best-practices --resources config-files/dockerfile
+        run: nctl scan dockerfile --policies controls/dockerfile-best-practices --resources config-files/dockerfile/Dockerfile
   
       - run: echo "🍏 This job's status is ${{ job.status }}."
