@@ -26,6 +26,15 @@ jobs:
         run: kyverno-json version
 
       - name: Kyverno JSON Scan - Dockerfile
-        run: kyverno-json scan --policy controls/dockerfile-best-practices --payload config-files/dockerfile/payload.json
+        run: |
+          kyverno-json scan --policy controls/dockerfile-best-practices --payload config-files/dockerfile/payload.json
   
+          output=$(kyverno-json scan --policy controls/dockerfile-best-practices --payload config-files/dockerfile/payload.json)
+          if echo "$output" | grep -q "FAILED"; then
+            echo "FAILED"
+            exit 1
+          else
+            echo "PASSED"
+            exit 0
+          fi
       - run: echo "🍏 This job's status is ${{ job.status }}."
