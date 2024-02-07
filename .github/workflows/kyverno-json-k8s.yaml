@@ -26,9 +26,6 @@ jobs:
         run: kyverno version
 
       - name: Kyverno Scan - Kubernetes
-        run: kyverno apply controls/pod-security --resources config-files/k8s
-
-      - name: NCTL Scan - Kubernetes Detailed Report
-        run: nctl scan kubernetes --policies controls/pod-security --resources config-files/k8s -p
+        run: kyverno apply controls/pod-security --resource config-files/k8s
 
       - run: echo "🍏 This job's status is ${{ job.status }}."

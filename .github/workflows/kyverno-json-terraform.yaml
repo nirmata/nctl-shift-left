@@ -30,6 +30,6 @@ jobs:
         # terraform init
         # terraform plan -out tfplan.binary
         # terraform show -json tfplan.binary | jq > payload.json
-        run: kyverno-json scan -policy controls/terraform-best-practices --payload config-files/terraform/payload.json
+        run: kyverno-json scan --policy controls/terraform-best-practices --payload config-files/terraform/payload.json
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
