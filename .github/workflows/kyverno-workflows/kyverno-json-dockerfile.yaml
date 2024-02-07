@@ -1,0 +1,31 @@
+name: Kyverno JSON Dockerfile Demo
+run-name: ${{ github.actor }} has triggered Scan Action 🚀
+on:
+  pull_request:
+    branches:
+      - "main"
+  push:
+    branches:
+      - "main"
+
+jobs:
+  NCTL-Scan-Dockerfile:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Install kyverno-json
+        uses: kyverno/action-install-kyverno-json@main
+
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+
+      - name: Check install
+        run: kyverno-json version
+
+      - name: Kyverno JSON Scan - Dockerfile
+        run: kyverno-json scan --policy controls/dockerfile-best-practices --payload config-files/dockerfile/payload.json
+  
+      - run: echo "🍏 This job's status is ${{ job.status }}."
