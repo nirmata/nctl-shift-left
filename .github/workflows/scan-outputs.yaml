@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: nctl-scan-installer
-        uses: nirmata/action-install-nctl-scan@v0.0.3
+        uses: nirmata/action-install-nctl-scan@v0.0.4
 
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
 
