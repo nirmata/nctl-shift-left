@@ -17,8 +17,14 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
 
-      - name: nctl-scan-installer
-        uses: nirmata/action-install-nctl-scan@v0.0.4
+      # - name: nctl-scan-installer
+      #   uses: nirmata/action-install-nctl-scan@v0.0.4
+
+      - name: Install NCTL Scan
+        run:
+          git clone git@github.com:nirmata/go-nctl.git
+          cd go-nctl
+          git checkout v3.4.4-beta.5
 
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
 
