@@ -377,7 +377,7 @@
             ],
             "tags": null,
             "update_default_version": null,
-            "user_data": "IyEvYmluL2Jhc2gKZWNobyBFQ1NfQ0xVU1RFUj1teS1lY3MtY2x1c3RlciA+PiAvZXRjL2Vjcy9lY3MuY29uZmln"
+            "user_data": "IyEvYmluL2Jhc2gKZWNobyBFQ1NfQ0xVU1RFUj1teS1lY3MtY2x1c3RlciA+PiAvZXRjL2Vjcy9lY3MuY29uZmlnCg=="
           },
           "sensitive_values": {
             "block_device_mappings": [
@@ -1279,7 +1279,7 @@
           ],
           "tags": null,
           "update_default_version": null,
-          "user_data": "IyEvYmluL2Jhc2gKZWNobyBFQ1NfQ0xVU1RFUj1teS1lY3MtY2x1c3RlciA+PiAvZXRjL2Vjcy9lY3MuY29uZmln"
+          "user_data": "IyEvYmluL2Jhc2gKZWNobyBFQ1NfQ0xVU1RFUj1teS1lY3MtY2x1c3RlciA+PiAvZXRjL2Vjcy9lY3MuY29uZmlnCg=="
         },
         "after_unknown": {
           "arn": true,
@@ -2600,6 +2600,30 @@
   },
   "relevant_attributes": [
     {
+      "resource": "aws_internet_gateway.internet_gateway",
+      "attribute": [
+        "id"
+      ]
+    },
+    {
+      "resource": "aws_route_table.route_table",
+      "attribute": [
+        "id"
+      ]
+    },
+    {
+      "resource": "aws_lb_target_group.ecs_tg",
+      "attribute": [
+        "arn"
+      ]
+    },
+    {
+      "resource": "aws_ecs_cluster.ecs_cluster",
+      "attribute": [
+        "name"
+      ]
+    },
+    {
       "resource": "aws_vpc.main",
       "attribute": [
         "id"
@@ -2612,43 +2636,13 @@
       ]
     },
     {
-      "resource": "aws_subnet.subnet",
-      "attribute": [
-        "id"
-      ]
-    },
-    {
-      "resource": "aws_subnet.subnet2",
-      "attribute": [
-        "id"
-      ]
-    },
-    {
-      "resource": "aws_launch_template.ecs_lt",
-      "attribute": [
-        "id"
-      ]
-    },
-    {
-      "resource": "aws_autoscaling_group.ecs_asg",
-      "attribute": [
-        "arn"
-      ]
-    },
-    {
-      "resource": "aws_route_table.route_table",
-      "attribute": [
-        "id"
-      ]
-    },
-    {
       "resource": "aws_lb.ecs_alb",
       "attribute": [
         "arn"
       ]
     },
     {
-      "resource": "aws_internet_gateway.internet_gateway",
+      "resource": "aws_subnet.subnet",
       "attribute": [
         "id"
       ]
@@ -2660,7 +2654,25 @@
       ]
     },
     {
-      "resource": "aws_lb_target_group.ecs_tg",
+      "resource": "aws_launch_template.ecs_lt",
+      "attribute": [
+        "id"
+      ]
+    },
+    {
+      "resource": "aws_ecs_task_definition.ecs_task_definition",
+      "attribute": [
+        "arn"
+      ]
+    },
+    {
+      "resource": "aws_subnet.subnet2",
+      "attribute": [
+        "id"
+      ]
+    },
+    {
+      "resource": "aws_autoscaling_group.ecs_asg",
       "attribute": [
         "arn"
       ]
@@ -2674,21 +2686,9 @@
     {
       "resource": "aws_ecs_cluster.ecs_cluster",
       "attribute": [
-        "name"
-      ]
-    },
-    {
-      "resource": "aws_ecs_task_definition.ecs_task_definition",
-      "attribute": [
-        "arn"
-      ]
-    },
-    {
-      "resource": "aws_ecs_cluster.ecs_cluster",
-      "attribute": [
         "id"
       ]
     }
   ],
-  "timestamp": "2024-04-11T09:01:44Z"
+  "timestamp": "2024-04-12T08:24:55Z"
 }
