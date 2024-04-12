@@ -21,7 +21,7 @@ jobs:
       #   uses: nirmata/action-install-nctl-scan@v0.0.4
 
       - name: Install NCTL Scan
-        run:
+        run: |
           git clone git@github.com:nirmata/go-nctl.git
           cd go-nctl
           git checkout v3.4.4-beta.5
