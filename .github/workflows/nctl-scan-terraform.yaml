@@ -30,13 +30,12 @@ jobs:
         run: nctl version
 
       - name: NCTL Scan - Terraform
-        # cd config-files/terraform
+        # cd config-files/terraform/ecs
         # terraform init
         # terraform plan -out tfplan.binary
         # terraform show -json tfplan.binary | jq > payload.json
         run: |
           ./scripts/install-tf.sh
-          ls scripts/
           nctl scan terraform --policies controls/terraform-best-practices --resources config-files/terraform/ecs/payload.json
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
