@@ -18,8 +18,13 @@ jobs:
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
 
-      - name: Check out repository code
-        uses: actions/checkout@v4
+      - name: Checkout PR branch
+        uses: actions/checkout@v3
+        with:
+          # Checks out the repository linked to the PR
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          # Checks out the branch from the PR
+          ref: ${{ github.event.pull_request.head.ref }}
 
       - name: nctl-scan-installer
         uses: nirmata/action-install-nctl-scan@v0.0.4
