@@ -41,7 +41,6 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
   network_mode       = "awsvpc"
   execution_role_arn = "arn:aws:iam::844333597536:role/ecsTaskExecutionRole" 
   cpu                = 256
-  pid_mode = "task"
   runtime_platform {
     operating_system_family = "LINUX"
     cpu_architecture        = "X86_64"
