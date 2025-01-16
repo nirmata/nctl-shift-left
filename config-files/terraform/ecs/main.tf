@@ -61,6 +61,17 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
       ]
     }
   ])
+
+  volume {
+    name = "service-storage"
+
+    efs_volume_configuration {
+      file_system_id          = "fs-0123456789abcdef0"
+      root_directory          = "/opt/data"
+      transit_encryption      = "ENABLED"
+      transit_encryption_port = 2999
+    }
+  }
 }
 
 # Define the ECS service that will run the task
