@@ -13,7 +13,7 @@ Learn about the CLI [here](https://docs.nirmata.io/docs/npmk/nctl/).
 Integrating nctl with GitHub Actions (or other pipelines) adds a critical check in the deployment process. `nctl` scans resources against customizable policies, enabling teams to enforce best practices and security standards. With the flexibility to either fail the pipeline or log issues without blocking it, nctl ensures thorough validation while accommodating varying project requirements.
 
 ### Use the GitHub Action
-Use the readily available [GitHub Action](https://github.com/marketplace/actions/nctl-scan-installer) to install `nctl`.
+Use the readily available [GitHub Action](https://github.com/marketplace/actions/nctl-scan-installer) to install `nctl`
 
 ### Example Workflows
 Checkout the examples in [.github/workflows](./.github/workflows) directory on how to use `nctl` in action!
